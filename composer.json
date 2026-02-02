@@ -1,0 +1,15 @@
+{
+    "name": "rania/mon-site",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "raniabadis00-ai",
+            "email": "raniabadis00@gmail.com"
+        }
+    ],
+    "require": {}
+}
