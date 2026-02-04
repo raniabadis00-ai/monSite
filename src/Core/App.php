@@ -6,16 +6,17 @@ class App {
 
     public static function run(): void
     {
-        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/'; // /user, /, /product, / contact
 
         $routes = [
-            '/' => 'page home',
-            '/contact' => 'page contact',
-            '/products' => 'page products',
+            '/' => [\App\Controller\HomeController::class, 'index'],
+            '/contact' => [\App\Controller\HomeController::class, 'contact'] // -> page contact
         ];
 
         if (isset($routes[$path])) {
-            echo $routes[$path];
+            [$controllerClass,$methodname] = $routes[$path];
+
+            (new $controllerClass())->$methodname();
             return;
         }
 
