@@ -17,9 +17,6 @@ class HomeController extends Controller
 
         $tableau = $query->fetchAll();
 
-        print_r($tableau);
-
-
         $this->render('home', [
             'title' => 'Home', // $title = 'Home';
             'users' => $tableau
